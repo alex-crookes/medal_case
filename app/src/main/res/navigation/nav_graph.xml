@@ -9,20 +9,5 @@
 		android:id="@+id/Achievements"
 		android:name="com.alexcrookes.medal_case.AchievementsFragment"
 		android:label="@string/feature_achievements"
-		tools:layout="@layout/fragment_first">
-
-		<action
-			android:id="@+id/action_FirstFragment_to_SecondFragment"
-			app:destination="@id/SecondFragment" />
-	</fragment>
-	<fragment
-		android:id="@+id/SecondFragment"
-		android:name="com.alexcrookes.medal_case.SecondFragment"
-		android:label="@string/second_fragment_label"
-		tools:layout="@layout/fragment_second">
-
-		<action
-			android:id="@+id/action_SecondFragment_to_FirstFragment"
-			app:destination="@id/Achievements" />
-	</fragment>
+		tools:layout="@layout/fragment_achievements" />
 </navigation>
