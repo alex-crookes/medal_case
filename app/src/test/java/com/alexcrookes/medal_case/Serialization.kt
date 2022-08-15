@@ -1,7 +1,9 @@
 package com.alexcrookes.medal_case
 
+import com.alexcrookes.medal_case.model.ApiResponse
 import com.alexcrookes.medal_case.model.PersonalRecord
-import com.alexcrookes.medal_case.model.VirtualRecord
+import com.alexcrookes.medal_case.model.VirtualRace
+import kotlinx.serialization.builtins.ListSerializer
 import org.junit.Test
 import kotlinx.serialization.json.Json
 
@@ -25,18 +27,18 @@ class SerializationTest {
 	// region: Virtual Races
 	//
 
-	private val virtualRecordOne = VirtualRecord("title", "image_url", "00:00")
+	private val virtualRecordOne = VirtualRace("title", "image_url", "00:00")
 	private val virtualRecordOneAsJson = """{"title":"title","image":"image_url","duration":"00:00"}"""
 
 	@Test
 	fun virtualRecord_Encode() {
-		val jsonText = json.encodeToString(VirtualRecord.serializer(), virtualRecordOne)
+		val jsonText = json.encodeToString(VirtualRace.serializer(), virtualRecordOne)
 		assertEquals(jsonText, virtualRecordOneAsJson)
 	}
 
 	@Test
 	fun virtualRecord_Decode() {
-		val asClass = json.decodeFromString(VirtualRecord.serializer(), virtualRecordOneAsJson)
+		val asClass = json.decodeFromString(VirtualRace.serializer(), virtualRecordOneAsJson)
 		assertEquals(asClass, virtualRecordOne)
 	}
 
@@ -135,6 +137,50 @@ class SerializationTest {
 	fun elevationRecord_Decode() {
 		val obj = json.decodeFromString(PersonalRecord.serializer(), elevationRecordAsJson)
 		assertEquals(obj, elevationRecord)
+	}
+
+	// endregion
+
+
+	//
+	// region Groups
+	//
+
+	@Test
+	fun decodeLocalRecordsCollection() {
+		val data = Storage().getResourceFile("/personal_records.json")
+		assertNotNull(data)
+
+		data?.let {
+			val objects = json.decodeFromString(ListSerializer(PersonalRecord.serializer()), it)
+
+			assertEquals(objects.size, 6)
+		}
+	}
+
+	@Test
+	fun decodeLocalRacesCollection() {
+		val data = Storage().getResourceFile("/virtual_races.json")
+		assertNotNull(data)
+
+		data?.let {
+			val objects = json.decodeFromString(ListSerializer(VirtualRace.serializer()), it)
+
+			assertEquals(objects.size, 7)
+		}
+	}
+
+	@Test
+	fun decodeLocalApiResponse() {
+		val data = Storage().getResourceFile("/api.json")
+		assertNotNull(data)
+
+		data?.let {
+			val api = json.decodeFromString(ApiResponse.serializer(), it)
+
+			assertEquals(api.virtualRaces.size, 7)
+			assertEquals(api.personalRecord.size, 6)
+		}
 	}
 
 	// endregion

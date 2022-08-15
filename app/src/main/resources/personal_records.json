@@ -1,0 +1,39 @@
+[
+  {
+    "type": "LONGEST_DISTANCE",
+    "title": "Longest Run",
+    "duration": "00:00",
+    "distance": 12345.0,
+    "image": "longest_run.png",
+    "achieved": 1660595970
+  }, {
+    "type": "ELEVATION",
+    "title": "Highest Elevation",
+    "height": 2095,
+    "image": "highest_elevation.png",
+    "achieved": 1660596103
+  }, {
+    "type": "FASTEST_DISTANCE",
+    "title": "Fastest 5k",
+    "duration": "00:00",
+    "image": "fastest_5k.png",
+    "achieved": 1660595970
+  }, {
+    "type": "FASTEST_DISTANCE",
+    "title": "Fastest 10k",
+    "duration": "00:00:00",
+    "image": "fastest_10k.png",
+    "achieved": 1660595970
+  }, {
+    "type": "FASTEST_DISTANCE",
+    "title": "Fastest Half Marathon",
+    "duration": "00:00",
+    "image": "fastest_half_marathon.png",
+    "achieved": 1660595970
+  }, {
+    "type": "FASTEST_DISTANCE",
+    "title": "Fastest Marathon",
+    "duration": "00:00",
+    "image": "fastest_half_marathon.png"
+  }
+]
