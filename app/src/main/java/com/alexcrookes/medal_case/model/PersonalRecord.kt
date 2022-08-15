@@ -5,6 +5,9 @@ import kotlinx.serialization.Serializable
 
 typealias Epoch = Long
 
+
+// https://alex-crookes.github.io/ubiquitous-octo-computing-machine/images/personal_records_assets/fastest_10k.png
+
 /**
  * Data Definition for the Personal Records
  *
@@ -13,10 +16,18 @@ typealias Epoch = Long
  */
 @Serializable
 sealed class PersonalRecord {
-	@Serializable @SerialName("DISTANCE")
-	data class Distance(
+	@Serializable @SerialName("FASTEST_DISTANCE")
+	data class FastestDistance(
 		val title: String,
 		val duration: String,
+		val image: String,
+		val achieved: Epoch? = null): PersonalRecord()
+
+	@Serializable @SerialName("LONGEST_DISTANCE")
+	data class LongestDistance(
+		val title: String,
+		val duration: String,
+		val distance: Double,
 		val image: String,
 		val achieved: Epoch): PersonalRecord()
 
