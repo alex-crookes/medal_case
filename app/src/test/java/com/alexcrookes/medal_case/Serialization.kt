@@ -1,6 +1,6 @@
 package com.alexcrookes.medal_case
 
-import com.alexcrookes.medal_case.model.ApiResponse
+import com.alexcrookes.medal_case.model.AchievementsResponse
 import com.alexcrookes.medal_case.model.PersonalRecord
 import com.alexcrookes.medal_case.model.VirtualRace
 import kotlinx.serialization.builtins.ListSerializer
@@ -176,7 +176,7 @@ class SerializationTest {
 		assertNotNull(data)
 
 		data?.let {
-			val api = json.decodeFromString(ApiResponse.serializer(), it)
+			val api = json.decodeFromString(AchievementsResponse.serializer(), it)
 
 			assertEquals(api.virtualRaces.size, 7)
 			assertEquals(api.personalRecord.size, 6)
