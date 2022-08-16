@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 typealias Epoch = Long
 
 
-// https://alex-crookes.github.io/ubiquitous-octo-computing-machine/images/personal_records_assets/fastest_10k.png
+// personal_records_assets/fastest_10k.png
 
 /**
  * Data Definition for the Personal Records
@@ -38,3 +38,16 @@ sealed class PersonalRecord {
 		val image: String,
 		val achieved: Epoch): PersonalRecord()
 }
+
+private const val path = "personal_records_assets"
+val PersonalRecord.imageUrl: String
+	get() {
+		return when (this) {
+			is PersonalRecord.FastestDistance ->
+				"$path/${this.image}"
+			is PersonalRecord.LongestDistance ->
+				"$path/${this.image}"
+			is PersonalRecord.Elevation ->
+				"$path/${this.image}"
+		}
+	}

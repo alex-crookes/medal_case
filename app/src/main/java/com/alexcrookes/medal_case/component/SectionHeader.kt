@@ -7,6 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.alexcrookes.medal_case.databinding.ComponentSectionHeaderBinding
 
 class SectionHeader: ConstraintLayout {
+
 	//
 	// region properties
 	//
@@ -24,6 +25,7 @@ class SectionHeader: ConstraintLayout {
 			field = new
 			binding.page.text = new
 		}
+
 	// endregion
 
 
@@ -35,17 +37,11 @@ class SectionHeader: ConstraintLayout {
 	constructor(context: Context, attributes: AttributeSet): super(context, attributes) {
 		initialize(context, attributes, 0)
 	}
-	constructor(context: Context, attributes: AttributeSet, defaultStyle: Int): super(context, attributes, defaultStyle) {
+	constructor(
+		context: Context, attributes: AttributeSet, defaultStyle: Int): super(context, attributes, defaultStyle
+	) {
 		initialize(context, attributes, defaultStyle)
 	}
-
-	// endregion
-
-
-	//
-	// region implementation
-	//
-
 
 	// endregion
 
@@ -61,19 +57,4 @@ class SectionHeader: ConstraintLayout {
 
 	// endregion
 
-
-	//
-	// region inner structures
-	//
-
-
-	// endregion
-
-
-	//
-	// region outer structures
-	//
-
-
-	// endregion
 }

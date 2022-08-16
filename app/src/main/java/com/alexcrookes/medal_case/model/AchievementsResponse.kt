@@ -5,6 +5,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class AchievementsResponse(
-	@SerialName("personal_records") val personalRecord: List<PersonalRecord>,
+	@SerialName("personal_records") val personalRecords: List<PersonalRecord>,
 	@SerialName("virtual_races") val virtualRaces: List<VirtualRace>
 )

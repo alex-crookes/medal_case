@@ -16,4 +16,6 @@
 
 	<string name="personal_records">Personal Records</string>
 	<string name="virtual_races">Virtual Races</string>
+
+	<string name="not_yet">Not Yet</string>
 </resources>

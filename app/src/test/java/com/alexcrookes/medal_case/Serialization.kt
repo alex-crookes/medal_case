@@ -179,7 +179,7 @@ class SerializationTest {
 			val api = json.decodeFromString(AchievementsResponse.serializer(), it)
 
 			assertEquals(api.virtualRaces.size, 7)
-			assertEquals(api.personalRecord.size, 6)
+			assertEquals(api.personalRecords.size, 6)
 		}
 	}
 
